@@ -5,7 +5,7 @@ class Flash
   attr_reader :now
 
   def initialize(req)
-    cookie = req.cookies['_rails_lite_app_flash']
+    cookie = req.cookies['_the_rails']
     @now = cookie ? @JSON.parse(cookie) : {}
     @flash = {}
   end
@@ -20,7 +20,7 @@ class Flash
 
   def store_flash(res)
     flash = {path: '/', value: @flash.to_json}
-    res.set_cookie('_rails_lite_app', flash)
+    res.set_cookie('_the_rails', flash)
   end
 
 end
